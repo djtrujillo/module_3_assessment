@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Store do
   context "class methods" do
-  let(:store) { Store.new(longName: "Something", city: "Denver", distance: 12, phone: "1234567", store_type: "something") }
+  let(:store) { Store.new("longName" => "Something", "city" => "Denver", "distance" => 12, "phone" => "1234567", "store_type" => "something") }
     it "initializes with store data" do
       expect(store.name).to eq("Something")
       expect(store.city).to eq("Denver")

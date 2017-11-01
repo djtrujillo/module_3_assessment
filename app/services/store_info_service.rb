@@ -4,6 +4,7 @@ class StoreInfoService
     stores_array.map do |store_data|
       Store.new(store_data)
     end
+
   end
 
 end
