@@ -1,20 +1,14 @@
 require 'rails_helper'
 
 feature "user can see stores within 25 miles of zip code" do
-# As a user
-
   context "as a user" do
     it "can search for zip and return stores" do
-      # When I visit "/"
       visit "/"
-      # And I fill in a search box with "80202" and click "search"
+
       fill_in "q", :with => "80202"
       click_on "Locate"
-      # Then my current path should be "/search" (ignoring params)
-      expect(current_path).to eq("/search")
 
-      # And I should see stores within 25 miles of 80202
-      # And I should see a message that says "17 Total Stores"
+      expect(current_path).to eq("/search")
       expect(page).to have_content("17 Total Stores")
 
       expect(page).to have_content("Name: ")

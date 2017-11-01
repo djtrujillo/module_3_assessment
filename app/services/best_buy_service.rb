@@ -1,7 +1,5 @@
 class BestBuyService
   def initialize
-    # response = @conn.get
-    # parsed = JSON.parse(response.body)
   end
 
   def stores(zip)
