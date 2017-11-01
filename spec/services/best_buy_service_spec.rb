@@ -7,4 +7,12 @@ describe BestBuyService do
       expect(best_buy).to be_a BestBuyService
     end
   end
+
+  context "instance methods" do
+    let(:stores) { BestBuyService.new.stores("80202") }
+    it "#stores" do
+      expect(stores.count).to eq(17)
+      expect(stores).to be_a Array
+    end
+  end
 end
