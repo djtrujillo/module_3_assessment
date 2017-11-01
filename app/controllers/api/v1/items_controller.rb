@@ -1,23 +1,19 @@
 class Api::V1::ItemsController < ApplicationController
   def index
-    render json: Item.all
-    # @items = Item.all.map do |item|
-    #   render json: ItemDecorator.new.all
-    # end
+    render json: Item.all, serializer: ItemSerializer
   end
 
   def show
-    render json: Item.find(params[:id])
+    render json: Item.find(params[:id]), serializer: ItemSerializer
   end
 
   def destroy
     @item = Item.find(params[:id])
-    render json: @item.delete
+    render json: @item.delete, serializer: ItemSerializer
   end
 
   def create
-    binding.pry
-    render json: Item.create(item_params)
+    render json: Item.create(item_params), serializer: ItemSerializer
   end
 
   private

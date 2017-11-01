@@ -39,14 +39,14 @@ describe "Items API" do
   it "can create new item" do
     item_params = {name: "item", description: "description", image_url: "www.example.com" }
 
-    post '/api/v1/items', params: {item: item_params} 
+    post '/api/v1/items', {item: item_params}
 
     expect(response).to be_success
 
     item = JSON.parse(response.body)
 
-    expect(item.name).to eq("item")
-    expect(item.description).to eq("description")
-    expect(item.image_url).to eq("www.example.com")
+    expect(item["name"]).to eq("item")
+    expect(item["description"]).to eq("description")
+    expect(item["image_url"]).to eq("www.example.com")
   end
 end
